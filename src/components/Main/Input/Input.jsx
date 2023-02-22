@@ -7,14 +7,18 @@ const Input = () => {
   const inputText = useRef();
   
   const handleSubmit = () => {
-    setInput(inputText.current.value);
+    setTimeout(() => {
+      setInput(inputText.current.value)
+    }, 4000)
   };
 
   const clear = () => {
     setPokemon([]);
+    inputText = '';
   }
 
   useEffect(() => {
+    
     const getPokemon = async () => {
         if (input !== '') {
           try{
@@ -23,7 +27,7 @@ const Input = () => {
           setPokemon([data, ...pokemon]);
           }
           catch(err){
-            alert(err)
+            alert('Not found!')
           }
       }
     }
@@ -35,13 +39,11 @@ const Input = () => {
     <div>
       <section>
               <h1>Search a Pokemon</h1>
-              <input type="text" placeholder='enter a Pokemon...' ref={inputText} />
-              <button onClick={handleSubmit}>SEARCH</button>
+              <input type="text" placeholder='enter a Pokemon...' ref={inputText} onChange={handleSubmit}/>
               <button onClick={clear}>CLEAR</button>
       </section>
-      {input !== ''  &&
-        <CardList data={pokemon}/>
-      } 
+              <CardList data={pokemon}/>
+       
     </div>
     </>)
 };
