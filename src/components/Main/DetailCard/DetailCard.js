@@ -23,6 +23,7 @@ export default function DetailCard(props) {
       }}
       getDetail();
     },    
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   [])
   
   //if(arrNew === [undefined, undefined]) {
