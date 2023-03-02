@@ -1,9 +1,12 @@
-import React, { Component } from "react";
+import React from 'react';
+import Nav from './Nav'
 
-class Header extends Component {
-  render() {
-    return <div>Header</div>;
-  }
+const Header = () => {
+  return (
+    <header>
+      <h1>PokeApp</h1>
+      <Nav />
+    </header>)
 }
 
 export default Header;
