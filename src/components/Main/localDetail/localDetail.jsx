@@ -1,19 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const LocalDetail = (props) => {
+  const [pokemon, setPokemon] = useState([])
+  
+  const name = useLocation()
+  const param = name.pathname.slice(9,)
+  console.log(param);
 
-  return(
+  setPokemon(props.data)
+
+  
+  if (pokemon.some(pokemon => pokemon.name)){ 
+    const local = pokemon.filter(name => name === param)
+    return(
     <section className="localDetail">
       <h1>PokeDetails</h1>
       <article className='apiPokemon'>
-      <h3>{props.newPokemon.name}</h3>
-      <img src={props.newPokemon.image.front_default} alt={props.newPokemon.name} />
-      <p>ID: {props.newPokemon.id}</p>
+      <h3>{local.name}</h3>
+      <img src={local.image.front_default} alt={local.name} />
+      <p>ID: {local.id}</p>
       <p>Type 1: </p>
       <p>Type 2: </p>
       </article>
     </section>
-  );
+  )};
 };
 
 export default LocalDetail;

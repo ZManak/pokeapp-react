@@ -8,8 +8,6 @@ export default function DetailCard(props) {
   
   const name = useLocation()
   const param = name.pathname.slice(9,)
-  
-  
 
   useEffect(() => {
     console.log(param)
