@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 
-import LocalDetail from '../localDetail/localDetail';
+//import LocalDetail from '../localDetail/localDetail';
 
 const Home = (props) => {
   const [pokemon, setPokemon] = useState([])
-  const [query, setQuery] = useState('')
+  //const [query, setQuery] = useState('')
   
   const allPokemon = props.allPokemon
   console.log(allPokemon)
   
-  const handleQuery = () => {
+  /* const handleQuery = () => {
     const query = pokemon.name;
     setQuery(query)
     console.log(query);
-  }
+  } */
 
   useEffect(() => {
       const getPokemon = async () => {
@@ -31,6 +31,7 @@ const Home = (props) => {
           }
     }
     getPokemon();
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   return (
