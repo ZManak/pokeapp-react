@@ -17,7 +17,7 @@ export default function Card(props) {
       <h2>{props.data.name}</h2>
       <img src={image.front_default} alt={props.data.name} />
       <br/>
-      <Link to={`/pokemon/${props.data.name}`} data={props} onClick={handleQuery}>More Info</Link>
+      <Link to={`/pokemon/${props.data.name}`} onClick={handleQuery}>More Info</Link>
      </div>
     
     </>
