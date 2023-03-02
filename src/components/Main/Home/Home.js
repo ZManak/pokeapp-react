@@ -7,13 +7,14 @@ import LocalDetail from '../localDetail/localDetail';
 
 const Home = (props) => {
   const [pokemon, setPokemon] = useState([])
+  const [query, setQuery] = useState('')
   
   const allPokemon = props.allPokemon
   console.log(allPokemon)
   
   const handleQuery = () => {
     const query = pokemon.name;
-    props.setQuery(query)
+    setQuery(query)
     console.log(query);
   }
 
@@ -37,12 +38,13 @@ const Home = (props) => {
           <section className='localPokemon'>
           {props.allPokemon.map(poke => <article>
             <h3 key={uuidv4()}>{poke.name}</h3>
-            <Link to={`/pokemon/${poke.name}`}  data={allPokemon}>More Info</Link>
+            {/* <Link to={<LocalDetail/>}  data={allPokemon}
+            handleQuery={handleQuery}>More Info</Link> */}
             </article>)}
           </section>
           <section className='apiPokemon'>
             {pokemon.map(poke => <article><h3 key={uuidv4()}>{poke.name}</h3>
-            <Link to={`/pokemon/${poke.name}`} onClick={handleQuery}>More Info</Link>
+           {/*  <Link to={<LocalDetail data={allPokemon} />}>More Info</Link> */}
           </article>)}
          </section>
       </section>);
