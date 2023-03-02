@@ -9,30 +9,36 @@ export default function Create(props) {
   const type1 = React.createRef();
   const type2 = React.createRef();
 
-  const handleSubmit = () => {
-    
-    const newPokemon = {id: id, name: name, image: image, type1: type1, type2:type2}
-    props.setPokemons([newPokemon])
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //Validar tipos
+    const newPokemon = {
+      id: id.current.value,
+      name: name.current.value,
+      image: image.current.value,
+      types: [{ type: { name: type1.current.value } }, { type: { name: type2.current.value } }]
+    }
+    props.setPokemons([newPokemon, ...props.localPokemon])
+    alert("Added new Pokelo")
   }
 
 
   return (
     <section className='createPokemon'>
-      <form id='create' onSubmit={handleSubmit}>
         <legend name="id">ID</legend>
-        <input name='id' type="number" id="id"/>
+        <input name='id' type="number" id="id" ref={id}/>
         <legend name="name">Name</legend>
-        <input name='name' type="text" id="name"/>
+        <input name='name' type="text" id="name" ref={name}/>
         <legend name="image">Image</legend>
-        <input name='image' type="text" id="image"/>
+        <input name='image' type="text" id="image" ref={image}/>
         <legend name="type1">Type 1</legend>
-        <input type="text" name='type1' />
+        <select name='type1' ref={type1} >
+          <option value="poison">Poison</option>
+        </select>
         <legend name="type2">Type 2</legend>
-        <input name='type2' type="text" id="type2"/>
+        <input name='type2' type="text" id="type2" ref={type2}/>
         <br/>
-        <input type="submit" value="Create" />
-      </form>
+        <button value="Create" onClick={handleSubmit}>CREATE</button>
     </section>
   )
   }
