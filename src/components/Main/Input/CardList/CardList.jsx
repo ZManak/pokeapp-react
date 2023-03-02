@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default function CardList(props) {
 
-  const printCards = () => <section>{props.data.map((pokemon) => <Card setQuery={props.query} data={pokemon} key={uuidv4} />)}</section>
+  const printCards = () => <section>{props.data.forEach((pokemon) => <Card setQuery={props.query} data={pokemon} key={uuidv4} />)}</section>
   
   return (
     <div>

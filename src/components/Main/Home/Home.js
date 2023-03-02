@@ -1,25 +1,24 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
 
-import LocalDetail from '../localDetail/localDetail';
-
-
-
 const Home = (props) => {
-  const [pokemon, setPokemon] = useState([])
   
-  const newPokemons = props.localPokemon
-  console.log("homenews");
-  console.log(newPokemons);
-  
+  const allPokemon = props.allPokemon
+  const handleQuery = () => {
+    const query = 
+    props.setQuery(query)
+    console.log(query);
+  }
+
   useEffect(() => {
       const getPokemon = async () => {
           try{
           const resp = await fetch('https://pokeapi.co/api/v2/pokemon/');
           const data = await resp.json();
-          setPokemon(data.results);
-          console.log(pokemon)
+          props.setPokemon(data.results);
+          console.log(allPokemon)
           }
           catch(err){
             alert('Not found!')
@@ -28,15 +27,14 @@ const Home = (props) => {
     getPokemon();
   }, []);
   
-  return (<section className="home">
-          {/* <article className='localPokemon'>
-            {props.localPokemon.forEach((element, i) => {
-              <LocalDetail newPokemon={element} key={i} />}) } 
-          </article> */}
-          <article className='apiPokemon'>
-            {pokemon.map(poke => <article><h3 key={uuidv4()}>{poke.name}</h3>
-            <a href={poke.url}>{poke.url}</a></article>)}
-          </article>
+  return (
+    <section className="home">
+          {allPokemon.map((pokemon) => 
+              <article key={pokemon.name}>
+                <h3>{pokemon.name}</h3>
+                <Link to={`./pokemon/${pokemon.name}`} onClick={handleQuery} >More Info</Link>
+          </article>)}
+            
     </section>);
   }
 
