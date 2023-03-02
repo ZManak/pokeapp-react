@@ -35,7 +35,7 @@ export default function DetailCard() {
       <h3>{pokemon.name}</h3>
       <img src={image.front_default} alt={pokemon.name} />
       <p>ID: {pokemon.id}</p>
-      <p>Type 1: {types[0].type.name} </p>
+      <p>Type 1: </p>
       <p>Type 2: </p>
     </article>
   )
