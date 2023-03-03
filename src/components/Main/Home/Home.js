@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
 
@@ -10,12 +11,8 @@ const Home = (props) => {
 
   const allPokemon = props.allPokemon
   console.log(allPokemon)
-
-  /* const handleQuery = () => {
-    const query = pokemon.name;
-    setQuery(query)
-    console.log(query);
-  } */
+  
+  const {pokeId} = useParams()
 
   useEffect(() => {
       const getPokemon = async () => {
@@ -48,7 +45,7 @@ const Home = (props) => {
         </article>)}
         </section>
       </section>);
-  }
+
 
 export default Home
 
