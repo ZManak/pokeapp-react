@@ -7,8 +7,15 @@ import DetailCard from './DetailCard/DetailCard';
 
 export default function Main() {
   const [pokemon, setPokemon] = useState([])
-  const [localPokemon, setLocalPokemon] = useState([{name:"Aceros", id:"666", image: {front_default: "#"}, type1: "steel", type2: "poison"},{name:"Pintxo", id:"9999", image: {front_default: "#"}, type1: "fairy", type2: "ghost"}])
-  //const [pokeId, setpokeId] = useState('')
+  const [localPokemon, setLocalPokemon] = useState([{name:"Aceros",
+  id:"666",
+  image: {front_default: "#"},
+  types: [{ type: { name: "fantasma" }},{ type: { name: "hada" }}]},
+  {name:"Pintxo", 
+  id:"9999", 
+  image: {front_default: "#"}, 
+  types: [{ type: { name: "cortante" }},{ type: { name: "veneno" }}]}])
+
 
   let { pokeId } = useParams();
   const allPokemon = [...pokemon, ...localPokemon]
