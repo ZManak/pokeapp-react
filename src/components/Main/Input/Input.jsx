@@ -4,7 +4,8 @@ import React, { useEffect, useRef, useState } from 'react';
 
 const Input = (props) => {
   const [input, setInput] = useState('');
-  const [pokemon, setPokemon] = useState([{name: '', id: 0, sprites: {front_default: ''}, types: [{ type: { name: "" }},{ type: { name: "" }}]}])
+  const [searchPokemon, setSearchPokemon] = useState([{name: undefined, id: undefined, sprites: {front_default: undefined}, types: [{ type: { name: undefined }},{ type: { name: undefined }}]}])
+  
   const inputText = useRef();
 
   const handleSubmit = () => {
@@ -14,20 +15,19 @@ const Input = (props) => {
   };
 
   const clear = () => {
-    setPokemon([]);
+    setSearchPokemon([]);
   }
-
-
 
   useEffect(() => {
     
     const getPokemon = async () => {
-        if (input !== '' && !props.pokemon.some(pokemon => pokemon.name === input)){
+        if (input !== '' && !searchPokemon.some(pokemon => pokemon.name === input)){
           try{
           const resp = await fetch('https://pokeapi.co/api/v2/pokemon/'+input);
           const data = await resp.json();
-          const rawList = [data]
-          setPokemon(rawList);
+          const rawList = [data, ...searchPokemon]
+          props.setPokemon(rawList);
+          setSearchPokemon(rawList);
           }
           catch(err){
             alert('Not found!')
@@ -45,7 +45,7 @@ const Input = (props) => {
               <input type="text" placeholder='enter a Pokemon...' ref={inputText} onChange={handleSubmit}/>
               <button onClick={clear}>CLEAR</button>
       </section>
-              <CardList data={pokemon}/>
+              <CardList data={searchPokemon}/>
        
     </div>
     </>)
