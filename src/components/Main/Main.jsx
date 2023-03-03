@@ -9,14 +9,14 @@ import DetailCard from './DetailCard/DetailCard';
 
 export default function Main(props) {
   const [pokemon, setPokemon] = useState([{name: undefined, id: undefined, sprites: {front_default: undefined}, types: [{ type: { name: undefined }},{ type: { name: undefined }}]}])
-  const [localPokemon, setLocalPokemon] = useState([{name:"Aceros",
+  const [localPokemon, setLocalPokemon] = useState([{name:"aceros",
   id:666,
-  image: {front_default: "#"},
+  sprites: {front_default: "./assets/pokemon/acero.jpg"},
   types: [{ type: { name: "fantasma" }},{ type: { name: "hada" }}]},
-  {name:"Pintxo", 
+  {name:"pintxo", 
   id:9999, 
-  image: {front_default: "#"}, 
-  types: [{ type: { name: "cortante" }},{ type: { name: "veneno" }}]}])
+  sprites: {front_default: "./assets/pokemon/pintxo.png"}, 
+  types: [{ type: { name: "Steel" }},{ type: { name: "Poison" }}]}])
 
 
   let { pokeId } = useParams();
@@ -30,9 +30,9 @@ export default function Main(props) {
       <Routes>
         <Route path="/" element={<Home allPokemon={allPokemon} />} />
         <Route path="/new" element={<Create setPokemon={setLocalPokemon} localPokemon={localPokemon} />} />
-        <Route path="/search" element={<Input setPokemon={setPokemon} pokemon={pokemon}/>} />
+        <Route path="/search" element={<Input setPokemon={setPokemon} pokemon={pokemon} localPokemon={localPokemon}/>} />
         <Route path={'/pokemon/'}>
-          <Route path={":pokeId"} element={<DetailCard  pokeId={pokeId} />} />
+          <Route path={":pokeId"} element={<DetailCard id={pokeId} localPokemon={localPokemon} />} />
         </Route>
       </Routes>
     </main>
