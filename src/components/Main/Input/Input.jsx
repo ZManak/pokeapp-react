@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 const Input = (props) => {
   const [input, setInput] = useState('');
-  const [pokemon, setPokemon] = useState([])
+  const [pokemon, setPokemon] = useState([{name: '', id: 0, sprites: {front_default: ''}, types: [{ type: { name: "" }},{ type: { name: "" }}]}])
   const inputText = useRef();
 
   const handleSubmit = () => {
@@ -22,11 +22,11 @@ const Input = (props) => {
   useEffect(() => {
     
     const getPokemon = async () => {
-        if (input !== '' && !pokemon.some(pokemon => pokemon.name === input)){
+        if (input !== '' && !props.pokemon.some(pokemon => pokemon.name === input)){
           try{
           const resp = await fetch('https://pokeapi.co/api/v2/pokemon/'+input);
           const data = await resp.json();
-          const rawList = [data, ...pokemon]
+          const rawList = [data]
           setPokemon(rawList);
           }
           catch(err){
@@ -35,7 +35,6 @@ const Input = (props) => {
       }
     }
     getPokemon();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [input]);
 
   return (
@@ -46,7 +45,7 @@ const Input = (props) => {
               <input type="text" placeholder='enter a Pokemon...' ref={inputText} onChange={handleSubmit}/>
               <button onClick={clear}>CLEAR</button>
       </section>
-              <CardList query={props.setQuery} data={pokemon}/>
+              <CardList data={pokemon}/>
        
     </div>
     </>)
