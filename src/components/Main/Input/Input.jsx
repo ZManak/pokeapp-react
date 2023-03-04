@@ -17,6 +17,9 @@ const Input = (props) => {
     setSearchPokemon([]);
   }
 
+  const local = props.localPokemon.filter(poke => poke.name === input);
+  console.log(local);
+
   useEffect(() => {
     if (props.localPokemon.some(pokemon => pokemon.name === input)){
       let local = props.localPokemon.filter(pokemon => pokemon.name === input)

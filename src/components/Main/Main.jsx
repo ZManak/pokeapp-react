@@ -8,15 +8,15 @@ import DetailCard from './DetailCard/DetailCard';
 
 
 export default function Main(props) {
-  const [pokemon, setPokemon] = useState([{name: "", id: -1, sprites: {front_default: ""}, types: [{ type: { name: "" }},{ type: { name: "" }}]}])
-  const [localPokemon, setLocalPokemon] = useState([{name:"Aceros",
+  const [pokemon, setPokemon] = useState([{name: undefined, id: undefined, sprites: {front_default: undefined}, types: [{ type: { name: undefined }},{ type: { name: undefined }}]}])
+  const [localPokemon, setLocalPokemon] = useState([{name:"aceros",
   id:666,
-  sprites: {front_default: "#"},
+  sprites: {front_default: "./assets/pokemon/acero.jpg"},
   types: [{ type: { name: "fantasma" }},{ type: { name: "hada" }}]},
-  {name:"Pintxo", 
+  {name:"pintxo", 
   id:9999, 
-  sprites: {front_default: "#"}, 
-  types: [{ type: { name: "cortante" }},{ type: { name: "veneno" }}]}])
+  sprites: {front_default: "./assets/pokemon/pintxo.png"}, 
+  types: [{ type: { name: "Steel" }},{ type: { name: "Poison" }}]}])
 
 
   /* let { pokeId } = useParams(); */

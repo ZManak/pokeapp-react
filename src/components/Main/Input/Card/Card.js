@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Card(props) {
- /*  const image = props.data.sprites */
+ const image = props.data.sprites
   
   const handleQuery = () => {
     const query = props.data.name;
@@ -11,15 +11,12 @@ export default function Card(props) {
   }
 
   return (
-    <>  
     
-    <div>
-      <h2>{props.data.name}</h2>
-      <img src={props.data.sprites.front_default} alt={props.data.name} />
+    (props.data.name !== 'default') ? <div className='card'>
+      <h2>{props.data.name[0].toUpperCase()+props.data.name.slice(1)}</h2>
+      <img src={image.front_default} alt={props.data.name} />
       <br/>
       <Link to={`/pokemon/${props.data.name}`} onClick={handleQuery}>More Info</Link>
-     </div>
-    
-    </>
+     </div> : <></>
   )
 }
