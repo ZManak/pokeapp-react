@@ -9,6 +9,7 @@ import DetailCard from './DetailCard/DetailCard';
 
 export default function Main(props) {
   const [pokemon, setPokemon] = useState([{name: undefined, id: undefined, sprites: {front_default: undefined}, types: [{ type: { name: undefined }},{ type: { name: undefined }}]}])
+
   const [localPokemon, setLocalPokemon] = useState([{name:"Aceros",
   id:666,
   image: {front_default: "#"},
@@ -30,7 +31,7 @@ export default function Main(props) {
       <Routes>
         <Route path="/" element={<Home allPokemon={allPokemon} />} />
         <Route path="/new" element={<Create setPokemon={setLocalPokemon} localPokemon={localPokemon} />} />
-        <Route path="/search" element={<Input setPokemon={setPokemon} pokemon={pokemon}/>} />
+        <Route path="/search" element={<Input setPokemon={setPokemon} localPokemon={localPokemon}/>} />
         <Route path={'/pokemon/'}>
           <Route path={":pokeId"} element={<DetailCard  pokeId={pokeId} />} />
         </Route>

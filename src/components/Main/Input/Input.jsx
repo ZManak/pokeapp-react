@@ -1,4 +1,4 @@
-import CardList from './CardList/CardList';
+import CardList from './CardList';
 import React, { useEffect, useRef, useState } from 'react';
 
 
@@ -32,10 +32,9 @@ const Input = (props) => {
           catch(err){
             alert('Not found!')
           }
-      }
-    }
-    getPokemon();
-  }, [input]);
+        }}
+   getPokemon()
+        }, [input]) 
 
   return (
     <>
@@ -45,8 +44,7 @@ const Input = (props) => {
               <input type="text" placeholder='enter a Pokemon...' ref={inputText} onChange={handleSubmit}/>
               <button onClick={clear}>CLEAR</button>
       </section>
-              <CardList data={searchPokemon}/>
-       
+              <CardList search={searchPokemon}/>
     </div>
     </>)
 };
