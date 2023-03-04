@@ -9,8 +9,8 @@ export default function Create(props) {
   const type1 = React.createRef();
   const type2 = React.createRef();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
+    //e.preventDefault();
     //Validar tipos
     const newPokemon = {
       id: id.current.value,
@@ -18,7 +18,7 @@ export default function Create(props) {
       image: image.current.value,
       types: [{ type: { name: type1.current.value } }, { type: { name: type2.current.value } }]
     }
-    props.setPokemons([newPokemon, ...props.localPokemon])
+    props.setPokemon([newPokemon, ...props.localPokemon])
     alert("Added new Pokelo")
   }
 

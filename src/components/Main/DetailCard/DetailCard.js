@@ -27,7 +27,9 @@ export default function DetailCard(props) {
   [])
 
   //if(arrNew === [undefined, undefined]) {
-  return pokemon ? (<article className='detailCard'>
+  return (
+      
+      pokemon ? (<article className='detailCard'>
       <h1>PokeDetails</h1>
       <h3>{pokemon.name}</h3>
       <img src={image.front_default} alt={pokemon.name} />
@@ -35,5 +37,5 @@ export default function DetailCard(props) {
       <p>Type 1: {pokemon.types[0].type.name}</p>
       <p>Type 2: {(pokemon.types.length > 1) ? pokemon.types[1].type.name : "none"}</p>
     </article>
-  ) : <></>
+    ) : <></>)
 }
