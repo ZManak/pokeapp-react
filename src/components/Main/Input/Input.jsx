@@ -12,6 +12,7 @@ const Input = (props) => {
       setInput(inputText.current.value)
     }, 4000)
     console.log(input)
+    console.log(input)
   };
 
   const clear = () => {

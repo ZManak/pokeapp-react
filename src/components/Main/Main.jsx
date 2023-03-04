@@ -5,8 +5,6 @@ import Home from './Home/Home';
 import Create from './Create/Create';
 import DetailCard from './DetailCard/DetailCard';
 
-
-
 export default function Main(props) {
   const [pokemon, setPokemon] = useState([{name: undefined, id: undefined, sprites: {front_default: undefined}, types: [{ type: { name: undefined }},{ type: { name: undefined }}]}])
   const [localPokemon, setLocalPokemon] = useState([{name:"aceros",
@@ -25,7 +23,7 @@ export default function Main(props) {
   
   console.log(pokemon)
   console.log(localPokemon);
-  console.log(allPokemon)
+
   return (
     <main>
       <Routes>
