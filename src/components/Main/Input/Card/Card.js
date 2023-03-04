@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 export default function Card(props) {
  const image = props.data.sprites
   
-  const handleQuery = () => {
+  /* const handleQuery = () => {
     const query = props.data.name;
     props.setQuery(query)
     console.log(query);
-  }
+  } */
 
   return (
     

@@ -11,6 +11,7 @@ const Input = (props) => {
     setTimeout(() => {
       setInput(inputText.current.value)
     }, 4000)
+    console.log(input)
   };
 
   const clear = () => {
