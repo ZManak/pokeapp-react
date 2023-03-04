@@ -19,7 +19,7 @@ export default function Main(props) {
 
   /* let { pokeId } = useParams(); */
   
-  const allPokemon = [...localPokemon, ...pokemon]
+  const allPokemon = [...localPokemon, ...pokemon.slice(1)]
   
   console.log(pokemon)
   console.log(localPokemon);

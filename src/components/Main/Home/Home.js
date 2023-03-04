@@ -1,6 +1,8 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
+import { AwesomeButton } from 'react-awesome-button';
+
 
 //import LocalDetail from '../localDetail/localDetail';
 
@@ -10,20 +12,13 @@ const Home = (props) => {
 
   const allPokemon = props.allPokemon
   
-  /* const handleQuery = () => {
-    const query = pokemon.name;
-    setQuery(query)
-    console.log(query);
-  } */
-
   return (
     <section className="home">
-          <section className='localPokemon'>
-          {allPokemon.map(poke => <article key={uuidv4()}>
-            <h3>{poke.name}</h3>
-            <Link to={'/pokemon/'+poke.name}>More Info</Link>
+          {allPokemon.map(poke => <article className='homeCard' key={uuidv4()}>
+            <h2>{poke.name.charAt(0).toUpperCase()+poke.name.slice(1)}</h2>
+            <img src={poke.sprites.front_default} alt={poke.name}/>
+            <Link to={'/pokemon/'+poke.name}><AwesomeButton type='secondary'>More Info</AwesomeButton></Link>
             </article>)}
-          </section>
     </section>);
   }
 

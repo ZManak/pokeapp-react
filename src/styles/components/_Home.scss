@@ -1,0 +1,21 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+}
+
+.homeCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 20px;
+}
+
+.homeCard > img{
+    width: 250px;
+    height: 250px;
+    padding-bottom: 15px;
+}
+
