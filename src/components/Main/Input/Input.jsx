@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 const Input = (props) => {
   const [input, setInput] = useState('');
-  const [searchPokemon, setSearchPokemon] = useState([{name: "default" , id: -1, sprites: {front_default: "undefined"}, types: [{ type: { name: "undefined" }},{ type: { name: "undefined" }}]}])
+  const [searchPokemon, setSearchPokemon] = useState([])
   const inputText = useRef();
 
   const handleSubmit = () => {
@@ -18,7 +18,11 @@ const Input = (props) => {
   }
 
   useEffect(() => {
-    
+    if (props.localPokemon.some(pokemon => pokemon.name === input)){
+      let local = props.localPokemon.filter(pokemon => pokemon.name === input)
+      setSearchPokemon(local)
+      } else {
+
           const getPokemon = async () => {          
           if (input !== '' && !searchPokemon.some(pokemon => pokemon.name === input)){
           try{
@@ -26,17 +30,16 @@ const Input = (props) => {
           const data = await resp.json();
           const arrData = [data, ...searchPokemon];
           props.setPokemon(arrData);
-          setSearchPokemon(arrData);
+          setSearchPokemon(arrData); 
           }
           catch(err){
             console.log("Not found! Looking for locals...")
           }
-          
           } 
         }        
         getPokemon()
         // eslint-disable-next-line     
-      }, [input]) 
+      } }, [input]) 
 
   return (
     <>
