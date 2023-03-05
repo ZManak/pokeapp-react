@@ -9,11 +9,11 @@ export default function Main(props) {
   const [pokemon, setPokemon] = useState([{name: undefined, id: undefined, sprites: {front_default: undefined}, types: [{ type: { name: undefined }},{ type: { name: undefined }}]}])
   const [localPokemon, setLocalPokemon] = useState([{name:"aceros",
   id:666,
-  sprites: {front_default: "./assets/pokemon/acero.jpg"},
+  sprites: {front_default: "/assets/pokemon/acero.jpg"},
   types: [{ type: { name: "fantasma" }},{ type: { name: "hada" }}]},
   {name:"pintxo", 
   id:9999, 
-  sprites: {front_default: "./assets/pokemon/pintxo.png"}, 
+  sprites: {front_default: "/assets/pokemon/pintxo.png"}, 
   types: [{ type: { name: "Steel" }},{ type: { name: "Poison" }}]}])
 
 

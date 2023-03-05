@@ -10,12 +10,11 @@ export default function Create(props) {
   const type2 = React.createRef();
 
   const handleSubmit = () => {
-    //e.preventDefault();
     //Validar tipos
     const newPokemon = {
       id: id.current.value,
       name: name.current.value,
-      image: image.current.value,
+      sprites: {front_default: image.current.value},
       types: [{ type: { name: type1.current.value } }, { type: { name: type2.current.value } }]
     }
     props.setPokemon([newPokemon, ...props.localPokemon])
